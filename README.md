@@ -35,3 +35,13 @@ mydotfiles status
 mydotfiles add .gitconfig
 mydotfiles commit -m 'Add gitconfig'
 mydotfiles push
+
+--
+#Setup on a new server
+When you get to a new server, use this process to start with a copy of your dotfiles:
+
+```bash
+git clone --separate-git-dir=$HOME/.dotfiles <you_repo_location> my-dotfiles-tmp
+rsync -av --exclude '.git' my-dotfiles-tmp/ $HOME/ ## this will overwrite any files with the same name!!
+rm -rf my-dotfiles-tmp
+```
