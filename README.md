@@ -15,3 +15,23 @@ Connect to the remote repo
 ```bash
 config remote add origin git@github.com:isccarrasco/dotfiles.git
 ```
+
+config status
+config add .vimrc
+config commit -m "Add vimrc"
+config add .bashrc
+config commit -m "Add bashrc"
+config push
+
+Replication
+git clone --separate-git-dir=$HOME/.my-dotfiles https://github.com/Siilwyn/my-dotfiles.git my-dotfiles-tmp
+rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
+rm --recursive my-dotfiles-tmp
+Configuration
+mydotfiles config status.showUntrackedFiles no
+mydotfiles remote set-url origin git@github.com:Siilwyn/my-dotfiles.git
+Usage
+mydotfiles status
+mydotfiles add .gitconfig
+mydotfiles commit -m 'Add gitconfig'
+mydotfiles push
