@@ -37,6 +37,7 @@ mydotfiles commit -m 'Add gitconfig'
 mydotfiles push
 
 --
+[new reference](https://www.simplicidade.org/survival/dotfiles/)
 #Setup on a new server
 When you get to a new server, use this process to start with a copy of your dotfiles:
 
