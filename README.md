@@ -1,33 +1,34 @@
 # dotfiles
 Dotfiles
 
-Initializing the repo
+## Initializing
 
 ```bash
 git init --bare $HOME/.dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/.dotiles/ --work-tree=$HOME'
-config config --local status.showUntrackedFiles no
-echo "alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.zshrc
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+dotfiles config --local status.showUntrackedFiles no
+echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.zshrc
 ```
 
 Connect to the remote repo
 
 ```bash
-config remote add origin git@github.com:isccarrasco/dotfiles.git
+dotfiles remote add origin git@github.com:isccarrasco/dotfiles.git
 ```
 
-config status
-config add .vimrc
-config commit -m "Add vimrc"
-config add .bashrc
-config commit -m "Add bashrc"
-config push
+dotfiles status
+dotfiles add .vimrc
+dotfiles commit -m "Add vimrc"
+dotfiles add .bashrc
+dotfiles commit -m "Add bashrc"
+dotfiles push
 
 ## Replication
 ```bash
-git clone --separate-git-dir=$HOME/.my-dotfiles https://github.com/Siilwyn/my-dotfiles.git my-dotfiles-tmp
-rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
-rm --recursive my-dotfiles-tmp
+git clone --separate-git-dir=$HOME/.dotfiles [https://github.com/isccarrasco/dotfiles.git](https://github.com/isccarrasco/dotfiles.git) dotfiles-tmp
+rsync --recursive --verbose --exclude '.git' dotfiles-tmp/ $HOME/
+rm --recursive dotfiles-tmp
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 ```
 
 ## Configuration
