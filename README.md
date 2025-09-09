@@ -18,12 +18,16 @@ Connect to the remote repo
 dotfiles remote add origin git@github.com:isccarrasco/dotfiles.git
 ```
 
+Adding configuration files to the repo
+
+```bash
 dotfiles status
 dotfiles add .vimrc
 dotfiles commit -m "Add vimrc"
 dotfiles add .bashrc
 dotfiles commit -m "Add bashrc"
 dotfiles push
+```
 
 ## Replication
 ```bash
