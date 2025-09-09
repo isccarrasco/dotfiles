@@ -1,7 +1,9 @@
 # dotfiles
 Dotfiles
 
-## Initializing
+## Setup
+
+Initializing the repo with bare option.
 
 ```bash
 git init --bare $HOME/.dotfiles
@@ -25,24 +27,24 @@ dotfiles push
 
 ## Replication
 ```bash
-git clone --separate-git-dir=$HOME/.dotfiles [https://github.com/isccarrasco/dotfiles.git](https://github.com/isccarrasco/dotfiles.git) dotfiles-tmp
+git clone --separate-git-dir=$HOME/.dotfiles git@github.com:isccarrasco/dotfiles.git dotfiles-tmp
 rsync --recursive --verbose --exclude '.git' dotfiles-tmp/ $HOME/
 rm --recursive dotfiles-tmp
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 ```
 
 ## Configuration
 ```bash
-mydotfiles config status.showUntrackedFiles no
-mydotfiles remote set-url origin git@github.com:Siilwyn/my-dotfiles.git
+dotfiles config status.showUntrackedFiles no
+dotfiles remote set-url origin git@github.com:isccarrasco/dotfiles.git
 ```
 
 ## Usage
 ```bash
-mydotfiles status
-mydotfiles add .gitconfig
-mydotfiles commit -m 'Add gitconfig'
-mydotfiles push
+dotfiles status
+dotfiles add .gitconfig
+dotfiles commit -m 'Add gitconfig'
+dotfiles push
 ```
 ---
 ## [new reference](https://www.simplicidade.org/survival/dotfiles/)
@@ -51,7 +53,7 @@ mydotfiles push
 When you get to a new server, use this process to start with a copy of your dotfiles:
 
 ```bash
-git clone --separate-git-dir=$HOME/.dotfiles <you_repo_location> my-dotfiles-tmp
-rsync -av --exclude '.git' my-dotfiles-tmp/ $HOME/ ## this will overwrite any files with the same name!!
+git clone --separate-git-dir=$HOME/.dotfiles git@github.com:isccarrasco/dotfiles.git dotfiles-tmp
+rsync -av --exclude '.git' dotfiles-tmp/ $HOME/ ## this will overwrite any files with the same name!!
 rm -rf my-dotfiles-tmp
 ```
