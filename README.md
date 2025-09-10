@@ -1,37 +1,63 @@
 # dotfiles
 Dotfiles
 
-Initializing the repo
+## Setup
+
+Initializing the repo with bare option.
 
 ```bash
 git init --bare $HOME/.dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/.dotiles/ --work-tree=$HOME'
-config config --local status.showUntrackedFiles no
-echo "alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.zshrc
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+dotfiles config --local status.showUntrackedFiles no
+echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.zshrc
 ```
 
 Connect to the remote repo
 
 ```bash
-config remote add origin git@github.com:isccarrasco/dotfiles.git
+dotfiles remote add origin git@github.com:isccarrasco/dotfiles.git
 ```
 
-config status
-config add .vimrc
-config commit -m "Add vimrc"
-config add .bashrc
-config commit -m "Add bashrc"
-config push
+Adding configuration files to the repo
 
-Replication
-git clone --separate-git-dir=$HOME/.my-dotfiles https://github.com/Siilwyn/my-dotfiles.git my-dotfiles-tmp
-rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
-rm --recursive my-dotfiles-tmp
-Configuration
-mydotfiles config status.showUntrackedFiles no
-mydotfiles remote set-url origin git@github.com:Siilwyn/my-dotfiles.git
-Usage
-mydotfiles status
-mydotfiles add .gitconfig
-mydotfiles commit -m 'Add gitconfig'
-mydotfiles push
+```bash
+dotfiles status
+dotfiles add .vimrc
+dotfiles commit -m "Add vimrc"
+dotfiles add .bashrc
+dotfiles commit -m "Add bashrc"
+dotfiles push
+```
+
+## Replication
+```bash
+git clone --separate-git-dir=$HOME/.dotfiles git@github.com:isccarrasco/dotfiles.git dotfiles-tmp
+rsync --recursive --verbose --exclude '.git' dotfiles-tmp/ $HOME/
+rm --recursive dotfiles-tmp
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+```
+
+## Configuration
+```bash
+dotfiles config status.showUntrackedFiles no
+dotfiles remote set-url origin git@github.com:isccarrasco/dotfiles.git
+```
+
+## Usage
+```bash
+dotfiles status
+dotfiles add .gitconfig
+dotfiles commit -m 'Add gitconfig'
+dotfiles push
+```
+---
+## [new reference](https://www.simplicidade.org/survival/dotfiles/)
+
+## Setup on a new server
+When you get to a new server, use this process to start with a copy of your dotfiles:
+
+```bash
+git clone --separate-git-dir=$HOME/.dotfiles git@github.com:isccarrasco/dotfiles.git dotfiles-tmp
+rsync -av --exclude '.git' dotfiles-tmp/ $HOME/ ## this will overwrite any files with the same name!!
+rm -rf my-dotfiles-tmp
+```
