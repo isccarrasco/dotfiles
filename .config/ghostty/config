@@ -1,0 +1,28 @@
+theme = rose-pine
+# theme = catppuccin-mocha
+# theme = catppuccin-macchiato
+# theme = borland
+# theme = light:catppuccin-latte, dark:catppuccin-mocha
+# theme = Dracula+ 
+
+# font-family = JetBrainsMono Nerd Font
+# font-family = Agave Nerd Font Mono
+# font-family = Cascadia Code
+# font-family = Meslo LGS Nerd Font Mono
+# font-family = CaskaydiaCove Nerd Font
+# font-family = Fira Code
+font-family = Maple Mono
+# font-family = Monaspace
+font-size = 16
+
+# background-blur-radius = 20
+# mouse-hide-while-typing = true
+window-decoration = true
+# keybind = global:cmd+s=toggle_quick_terminal
+
+background-opacity = 1
+background-blur-radius = 2
+
+macos-titlebar-style = transparent
+# macos-titlebar-style = hidden
+

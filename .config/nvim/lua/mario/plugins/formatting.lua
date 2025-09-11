@@ -19,12 +19,12 @@ return {
         graphql = { "prettier" },
         liquid = { "prettier" },
         lua = { "stylua" },
-        python = { "isort", "black" },
+				python = { "isort", "ruff_format" }, -- , "black" },
       },
       format_on_save = {
         lsp_fallback = true,
         async = false,
-        timeout_ms = 3000,
+        timeout_ms = 1000, -- 3000,
       },
     })
 

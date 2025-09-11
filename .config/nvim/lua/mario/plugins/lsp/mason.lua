@@ -4,6 +4,8 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
+	-- lazy = false,
+
 	config = function()
 		-- import mason
 		local mason = require("mason")
@@ -22,12 +24,21 @@ return {
 					package_uninstalled = "✗",
 				},
 			},
-		})
+    })
+		-- mason.setup({
+			-- ui = {
+			-- 	icons = {
+			-- 		package_installed = "✓",
+			-- 		package_pending = "➜",
+			-- 		package_uninstalled = "✗",
+			-- 	},
+			-- },
+		-- })
 
 		mason_lspconfig.setup({
 			-- list of servers for mason to install
 			ensure_installed = {
-				"ts_ls",
+				"ts_ls", -- tsserver",
 				"html",
 				"cssls",
 				"tailwindcss",
@@ -37,8 +48,11 @@ return {
 				"emmet_ls",
 				"prismals",
 				"pyright",
-				"eslint",
-				"ruff",
+				"eslint", --
+				"ruff",   --
+				"rust_analyzer",
+				-- "dockerls",
+				-- "docker_language_server",
 			},
 		})
 
@@ -47,12 +61,14 @@ return {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"isort", -- python formatter
+				"ruff", -- python formatter
 				"black", -- python formatter
 				"pylint",
 				"eslint_d",
-				"ruff",
 				"mypy",
+				-- "docker_language_server",
 			},
 		})
 	end,
 }
+

@@ -1,10 +1,21 @@
+-- changing the mapping for leader, before: :Ex
+-- set leader key to space
 vim.g.mapleader = " "
-
+ 
 local keymap = vim.keymap -- for conciseness
+ 
 
+---------------------
+-- General Keymaps -------------------
+
+-- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
+-- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+
+-- delete single character without copying into register
+-- keymap.set("n", "x", '"_x')
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
@@ -22,8 +33,18 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
+keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+-- :so ; for reloading the changes in the file
+--
+-- vim.cmd("set expandtab")
+-- vim.cmd("set tabstop=2")
+-- vim.cmd("set softtabstop=2")
+-- vim.cmd("set shiftwidth=2")
+
 -- management of vim-tmux-navigator
 keymap.set("n", "<c-k>", ":wincmd k<CR>")
 keymap.set("n", "<c-j>", ":wincmd j<CR>")
 keymap.set("n", "<c-h>", ":wincmd h<CR>")
 keymap.set("n", "<c-l>", ":wincmd l<CR>")
+
